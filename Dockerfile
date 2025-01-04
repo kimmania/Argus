@@ -22,8 +22,11 @@ USER argus
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the application contents into the container at /app
+COPY argus.py /app/
+COPY config/ /app/config/
+COPY modules /app/modules/
+COPY utils/ /app/utils/
 
 # Disable output buffering and prevents Python from writing .pyc files (compiled bytecode) to the filesystem. 
 # These settings are commonly used in Dockerized Python applications to optimize logging and avoid unnecessary file writes.

@@ -38,8 +38,12 @@ To Build: docker build -t argus .
 Run interactive: docker run -it --name argus argus
   Note: The above line puts you right at the cmd of the running argus application
         Enter a number for executing the possible options
-        exit to exit out
-        exit to then exit out of the interactive docker instance
+        exit to exit out of the interactive session/stops the container
+If you also want to connect to the console: 
+  docker run -it --name argus argus
+  python argus.py
+  NOTE: if you exit here, that puts you back to the container's console. An additional exit will exit out of the running container.
+
 To cleanup the container: 
   docker rm argus
   docker rmi argus:latest

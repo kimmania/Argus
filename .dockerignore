@@ -10,6 +10,5 @@ notes.md
 *.config
 
 # Exclude any directories that contain sensitive data (customize as needed)
-secrets/
-config/
-private/
+# secrets/
+# private/
