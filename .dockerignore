@@ -1,0 +1,15 @@
+# Exclude README.md file
+README.md
+notes.md
+
+# Exclude secure files (customize this pattern for the actual secure files you want to exclude)
+*.key
+*.pem
+*.env
+*.secret
+*.config
+
+# Exclude any directories that contain sensitive data (customize as needed)
+secrets/
+config/
+private/
