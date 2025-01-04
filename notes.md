@@ -34,5 +34,9 @@ Talked to Aziz to go through the list of items most meaningful to him relative t
 
 
 Commands:
-Build: docker build -t argus .
-Run interactive: docker run -it --name argus argus /bin/bash
+To Build: docker build -t argus .
+Run interactive: docker run -it --name argus argus
+  Note: The above line puts you right at the cmd of the running argus application
+        Enter a number for executing the possible options
+        exit to exit out
+        exit to then exit out of the interactive docker instance

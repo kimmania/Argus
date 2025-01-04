@@ -31,9 +31,7 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
 # Run the Python program by default
-# CMD ["python", "argus.py"]
-CMD ["bash"]
-
+CMD ["python", "argus.py"]
 
 #####Kali linux works, but missing nmap, maybe more, size was over 1 GB, so looked to use the pythin images instead
 # # Using an official kali linux image
