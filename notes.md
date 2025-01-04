@@ -40,3 +40,6 @@ Run interactive: docker run -it --name argus argus
         Enter a number for executing the possible options
         exit to exit out
         exit to then exit out of the interactive docker instance
+To cleanup the container: 
+  docker rm argus
+  docker rmi argus:latest
