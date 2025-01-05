@@ -7,29 +7,29 @@ Argus is an all-in-one, Python-powered toolkit designed to streamline the proces
 Talked to Aziz to go through the list of items most meaningful to him relative to work he does:
 
 * Network and infrastructure tool
-  * Open Ports Scan: Scan the target for open ports and services.
+  * 9 - Open Ports Scan: Scan the target for open ports and services.
     * simple text output of the list of open ports
     * required nmap command installation on the linux container 
-  * Domain Info: Gather information such as registrar details and expiry dates.
-  * Associated Hosts: Discover domains associated with the target.
-  * TLS Cipher Suites: List the supported TLS ciphers on the server.
-  * WHOIS Lookup: Perform WHOIS queries to gather domain ownership details.
-  * Zone Transfer: Attempt to perform DNS zone transfers.
+  * 5 - Domain Info: Gather information such as registrar details and expiry dates.
+  * 1 - Associated Hosts: Discover domains associated with the target.
+  * 14 - TLS Cipher Suites: List the supported TLS ciphers on the server.
+  * 18 - WHOIS Lookup: Perform WHOIS queries to gather domain ownership details.
+  * 19 - Zone Transfer: Attempt to perform DNS zone transfers.
 * Web Application Analysis
-  * CMS detection: Detect the type of CMS used, like WordPress, Joomla, etc.
-  * Cookies analyzer: Analyze cookies for secure attributes and potential privacy issues.
-  * Crawler: Crawl the site to uncover data and map out its structure.
-  * Robots.txt analyzer: Analyze the robots.txt file for hidden resources.
-  * Directory finder: Look for directories that may not be indexed publicly.
-  * Sitemap parsing: Extract URLs from the site’s sitemap.
-  * Technology stack detection: Identify the technologies and frameworks the site uses.
-  * Third-party integrations: Discover any third-party services integrated into the site.
+  * 23 - CMS detection: Detect the type of CMS used, like WordPress, Joomla, etc.
+  * 24 - Cookies analyzer: Analyze cookies for secure attributes and potential privacy issues.
+  * 26 - Crawler: Crawl the site to uncover data and map out its structure.
+  * 27 - Robots.txt analyzer: Analyze the robots.txt file for hidden resources.
+  * 28 - Directory finder: Look for directories that may not be indexed publicly.
+  * 33 - Sitemap parsing: Extract URLs from the site’s sitemap.
+  * 35 - Technology stack detection: Identify the technologies and frameworks the site uses.
+  * 36 - Third-party integrations: Discover any third-party services integrated into the site.
 * Security & Threat Intelligence
-  * Data leak detection: Check for potential data leaks and sensitive data exposure.
-  * Firewall detection: Identify whether a firewall or WAF is protecting the target.
-  * HTTP headers: Extract and evaluate HTTP response headers.
-  * HTTP security features: Check for secure HTTP headers such as HSTS and CSP.
-  * Subdomain enumeration: Discover subdomains of the target domain.
+  * 39 - Data leak detection: Check for potential data leaks and sensitive data exposure.
+  * 41 - Firewall detection: Identify whether a firewall or WAF is protecting the target.
+  * 43 - HTTP headers: Extract and evaluate HTTP response headers.
+  * 44 - HTTP security features: Check for secure HTTP headers such as HSTS and CSP.
+  * 52 - Subdomain enumeration: Discover subdomains of the target domain.
 
 
 
