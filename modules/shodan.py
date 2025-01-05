@@ -26,9 +26,9 @@ MAX_CONCURRENT_REQUESTS = 5
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import API_KEYS
-from utils.util import  resolve_to_ip  
+from utils.util import  resolve_to_ip, clean_api_key  
 
-SHODAN_API_KEY = API_KEYS.get("SHODAN_API_KEY")
+SHODAN_API_KEY = clean_api_key(API_KEYS.get("SHODAN_API_KEY"))
 if not SHODAN_API_KEY:
     console.print(Fore.RED + "[!] Shodan API key is not set. Please set it in config/settings.py.")
     sys.exit(1)

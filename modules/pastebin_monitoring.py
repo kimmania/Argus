@@ -15,7 +15,7 @@ import argparse
 # Add the parent directory to the system path to import utilities and settings
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.util import log_message
+from utils.util import log_message, clean_api_key
 from config.settings import API_KEYS
 
 init(autoreset=True)
@@ -237,9 +237,9 @@ async def check_blacklist_services(domain):
 
 async def check_virustotal(session, domain):
     console.print(Fore.YELLOW + "[*] Checking VirusTotal...")
-    api_key = API_KEYS.get("VIRUSTOTAL_API_KEY")
+    api_key = clean_api_key(API_KEYS.get("VIRUSTOTAL_API_KEY"))
     if not api_key:
-        console.print(Fore.RED + "[!] VirusTotal API key not configured.")
+        console.print(Fore.RED + "[!] VirusTotal API key not configured, skipping (set it in config/settings.py if you have one).")
         log_message("paste_monitoring.log", "VirusTotal API key not configured.")
         return
 

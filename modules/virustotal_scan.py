@@ -6,7 +6,7 @@ from rich.console import Console
 from rich.table import Table
 from colorama import Fore, init
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.util import clean_url, validate_url
+from utils.util import clean_url, validate_url, clean_api_key
 from config.settings import API_KEYS
 
 # Initialize Colorama and Console
@@ -118,9 +118,9 @@ async def run_scans(targets, api_key):
 
 def main(targets):
     banner()
-    api_key = API_KEYS.get("VIRUSTOTAL_API_KEY")
+    api_key = clean_api_key(API_KEYS.get("VIRUSTOTAL_API_KEY"))
     if not api_key:
-        console.print(Fore.RED + "[!] VirusTotal API key is not set. Please set it in config/settings.py or as an environment variable.")
+        console.print(Fore.RED + "[!] VirusTotal API key is not set. Please set it in config/settings.py.")
         sys.exit(1)
     
     cleaned_targets = []

@@ -13,6 +13,7 @@ import argparse
 import concurrent.futures
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import API_KEYS
+from utils.util import clean_api_key
 
 init(autoreset=True)
 console = Console()
@@ -115,10 +116,10 @@ def main():
 
     domains = args.domains
     threads = args.threads
-    api_key = API_KEYS.get("VIRUSTOTAL_API_KEY")
+    api_key = clean_api_key(API_KEYS.get("VIRUSTOTAL_API_KEY"))
 
     if not api_key:
-        console.print(Fore.RED + "[!] VirusTotal API key not provided. Use --apikey or set the VIRUSTOTAL_API_KEY environment variable.")
+        console.print(Fore.RED + "[!] VirusTotal API key not provided. Please set it in config/settings.py.")
         sys.exit(1)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:

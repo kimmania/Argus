@@ -5,7 +5,7 @@ from colorama import Fore, init, Style
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import DEFAULT_TIMEOUT, API_KEYS  
-from utils.util import resolve_to_ip  
+from utils.util import resolve_to_ip, clean_api_key  
 
 init(autoreset=True)
 
@@ -17,9 +17,9 @@ def banner():
     """ + Style.RESET_ALL)
 
 def get_associated_hosts_shodan(ip):
-    api_key = API_KEYS.get("SHODAN_API_KEY")  
+    api_key = clean_api_key(API_KEYS.get("SHODAN_API_KEY"))
     if not api_key:
-        print(Fore.WHITE + "[!] Shodan API key not configured, using HackerTarget instead..." + Style.RESET_ALL)
+        print(Fore.WHITE + "[!] Shodan API key not configured (set it in config/settings.py if you have one), using HackerTarget instead..." + Style.RESET_ALL)
         return "NO_API"
 
     try:

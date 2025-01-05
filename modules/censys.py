@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 import re
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import API_KEYS
+from utils.util import clean_api_key
 
 init(autoreset=True)
 console = Console()
@@ -21,10 +22,10 @@ console = Console()
 DEFAULT_TIMEOUT = 10
 
 # Censys API credentials (replace with your actual API ID and Secret) 
-CENSYS_API_ID = API_KEYS.get("CENSYS_API_ID")
-CENSYS_API_SECRET = API_KEYS.get("CENSYS_API_SECRET")
+CENSYS_API_ID = clean_api_key(API_KEYS.get("CENSYS_API_ID"))
+CENSYS_API_SECRET = clean_api_key(API_KEYS.get("CENSYS_API_SECRET"))
 if not CENSYS_API_ID or not CENSYS_API_SECRET:
-    console.print(Fore.RED + "[!] Censys API credentials are not set. Please set them in the script.")
+    console.print(Fore.RED + "[!] Censys API credentials are not set. Please set them in config/settings.py")
     sys.exit(1)
 
 CENSYS_API_URL = "https://search.censys.io/api/v2/hosts/"
