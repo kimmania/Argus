@@ -156,18 +156,19 @@ def display_table():
     table.add_row("", "", "")
     table.add_row("[bold]100[/bold]. Run All Infrastructure Tools", "[bold]200[/bold]. Run All Web Intelligence Tools", "[bold]300[/bold]. Run All Security Tools")
     table.add_row("", "", "")
-    table.add_row("", "[bold red]" + "-" * 15 + " 00. BEAST MODE " + "-" * 15 + "[/bold red]", "")
+    table.add_row("", "[bold red]" + "-" * 11 + " 00. BEAST MODE (-39&53) " + "-" * 11 + "[/bold red]", "")
     table.add_row("","(*) denotes API Key commands", "")
     console.print(table)
 
-def check_api_modules():
-    api_status = {
-        'VirusTotal': check_api_configured('VIRUSTOTAL_API_KEY'),
-        'Shodan': check_api_configured('SHODAN_API_KEY'),
-        'SSL Labs': check_api_configured('SSL_LABS_API_KEY'),
-        'Google PageSpeed': check_api_configured('GOOGLE_PAGESPEED_API_KEY')
-    }
-    return api_status
+# def check_api_modules():
+#     #this value isn't ever used
+#     api_status = {
+#         'VirusTotal': check_api_configured('VIRUSTOTAL_API_KEY'),
+#         'Shodan': check_api_configured('SHODAN_API_KEY'),
+#         'SSL Labs': check_api_configured('SSL_LABS_API_KEY'),
+#         'Google PageSpeed': check_api_configured('GOOGLE_PAGESPEED_API_KEY')
+#     }
+#     return api_status
 
 # Function for BEAST MODE execution
 def beast_mode():
