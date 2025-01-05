@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.table import Table
 from colorama import Fore, init
 import logging
+from config.settings import RESULTS_DIR
 
 # Check for required modules
 required_modules = ['requests', 'bs4', 'rich', 'colorama']
@@ -174,7 +175,7 @@ def display_tech_stack(tech_stack):
     console.print(table)
 
 def save_results(tech_stack, target):
-    results_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'Results')
+    results_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', RESULTS_DIR)
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
 
