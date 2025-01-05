@@ -39,6 +39,8 @@ Run interactive: docker run -it --name argus argus
   Note: The above line puts you right at the cmd of the running argus application
         Enter a number for executing the possible options
         exit to exit out of the interactive session/stops the container
+Start an existing container: docker start -i argus
+
 If you also want to connect to the console: 
   docker run -it --name argus argus
   python argus.py
