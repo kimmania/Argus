@@ -31,7 +31,7 @@ Talked to Aziz to go through the list of items most meaningful to him relative t
   * 44 - HTTP security features: Check for secure HTTP headers such as HSTS and CSP.
   * 52 - Subdomain enumeration: Discover subdomains of the target domain.
 
-
+9,5,1,14,18,19,23,24,26,27,28,33,35,36,39,41,43,44,52
 
 Commands:
 To Build: docker build -t argus .
