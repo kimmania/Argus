@@ -31,12 +31,12 @@ AUTHOR = "Jason13"
 # Define tools with updated module numbers
 tools = [
     # Network & Infrastructure (1-19)
-    {'number': '1', 'name': 'Associated Hosts', 'script': 'associated_hosts.py', 'section': 'Network & Infrastructure'},
+    {'number': '1', 'name': 'Associated Hosts (*)', 'script': 'associated_hosts.py', 'section': 'Network & Infrastructure'},
     {'number': '2', 'name': 'DNS Over HTTPS', 'script': 'dns_over_https.py', 'section': 'Network & Infrastructure'},
     {'number': '3', 'name': 'DNS Records', 'script': 'dns_records.py', 'section': 'Network & Infrastructure'},
     {'number': '4', 'name': 'DNSSEC Check', 'script': 'dnssec.py', 'section': 'Network & Infrastructure'},
     {'number': '5', 'name': 'Domain Info', 'script': 'domain_info.py', 'section': 'Network & Infrastructure'},
-    {'number': '6', 'name': 'Domain Reputation Check', 'script': 'domain_reputation_check.py', 'section': 'Network & Infrastructure'},
+    {'number': '6', 'name': 'Domain Reputation Check (*)', 'script': 'domain_reputation_check.py', 'section': 'Network & Infrastructure'},
     {'number': '7', 'name': 'HTTP/2 and HTTP/3 Support Checker', 'script': 'http2_http3_checker.py', 'section': 'Network & Infrastructure'},
     {'number': '8', 'name': 'IP Info', 'script': 'ip_info.py', 'section': 'Network & Infrastructure'},
     {'number': '9', 'name': 'Open Ports Scan', 'script': 'open_ports.py', 'section': 'Network & Infrastructure'},
@@ -71,24 +71,24 @@ tools = [
     {'number': '36', 'name': 'Third-Party Integrations', 'script': 'third_party_integrations.py', 'section': 'Web Application Analysis'},
 
     # Security & Threat Intelligence (37-54)
-    {'number': '37', 'name': 'Censys Reconnaissance', 'script': 'censys.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '37', 'name': 'Censys Reconnaissance (*)', 'script': 'censys.py', 'section': 'Security & Threat Intelligence'},
     {'number': '38', 'name': 'Certificate Authority Recon', 'script': 'certificate_authority_recon.py', 'section': 'Security & Threat Intelligence'},
     {'number': '39', 'name': 'Data Leak Detection', 'script': 'data_leak.py', 'section': 'Security & Threat Intelligence'},
     {'number': '40', 'name': 'Exposed Environment Files Checker', 'script': 'exposed_env_files.py', 'section': 'Security & Threat Intelligence'},
     {'number': '41', 'name': 'Firewall Detection', 'script': 'firewall_detection.py', 'section': 'Security & Threat Intelligence'},
-    {'number': '42', 'name': 'Global Ranking', 'script': 'global_ranking.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '42', 'name': 'Global Ranking (*)', 'script': 'global_ranking.py', 'section': 'Security & Threat Intelligence'},
     {'number': '43', 'name': 'HTTP Headers', 'script': 'http_headers.py', 'section': 'Security & Threat Intelligence'},
     {'number': '44', 'name': 'HTTP Security Features', 'script': 'http_security.py', 'section': 'Security & Threat Intelligence'},
-    {'number': '45', 'name': 'Malware & Phishing Check', 'script': 'malware_phishing.py', 'section': 'Security & Threat Intelligence'},
-    {'number': '46', 'name': 'Pastebin Monitoring', 'script': 'pastebin_monitoring.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '45', 'name': 'Malware & Phishing Check (*)', 'script': 'malware_phishing.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '46', 'name': 'Pastebin Monitoring (*)', 'script': 'pastebin_monitoring.py', 'section': 'Security & Threat Intelligence'},
     {'number': '47', 'name': 'Privacy & GDPR Compliance', 'script': 'privacy_gdpr.py', 'section': 'Security & Threat Intelligence'},
     {'number': '48', 'name': 'Security.txt Check', 'script': 'security_txt.py', 'section': 'Security & Threat Intelligence'},
-    {'number': '49', 'name': 'Shodan Reconnaissance', 'script': 'shodan.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '49', 'name': 'Shodan Reconnaissance (*)', 'script': 'shodan.py', 'section': 'Security & Threat Intelligence'},
     {'number': '50', 'name': 'SSL Labs Report', 'script': 'ssl_labs_report.py', 'section': 'Security & Threat Intelligence'},
     {'number': '51', 'name': 'SSL Pinning Check', 'script': 'ssl_pinning_check.py', 'section': 'Security & Threat Intelligence'},
     {'number': '52', 'name': 'Subdomain Enumeration', 'script': 'subdomain_enum.py', 'section': 'Security & Threat Intelligence'},
     {'number': '53', 'name': 'Subdomain Takeover', 'script': 'subdomain_takeover.py', 'section': 'Security & Threat Intelligence'},
-    {'number': '54', 'name': 'VirusTotal Scan', 'script': 'virustotal_scan.py', 'section': 'Security & Threat Intelligence'},
+    {'number': '54', 'name': 'VirusTotal Scan (*)', 'script': 'virustotal_scan.py', 'section': 'Security & Threat Intelligence'},
 
     {'number': '100', 'name': 'Run All Infrastructure Tools', 'script': '', 'section': 'Run All Scripts'},
     {'number': '200', 'name': 'Run All Web Intelligence Tools', 'script': '', 'section': 'Run All Scripts'},
@@ -157,6 +157,7 @@ def display_table():
     table.add_row("[bold]100[/bold]. Run All Infrastructure Tools", "[bold]200[/bold]. Run All Web Intelligence Tools", "[bold]300[/bold]. Run All Security Tools")
     table.add_row("", "", "")
     table.add_row("", "[bold red]" + "-" * 15 + " 00. BEAST MODE " + "-" * 15 + "[/bold red]", "")
+    table.add_row("","(*) denotes API Key commands", "")
     console.print(table)
 
 def check_api_modules():
@@ -172,10 +173,9 @@ def check_api_modules():
 def beast_mode():
     clear_screen()
     console.print("[bold red][*] Running BEAST MODE - Executing All Modules [/bold red]")
-    api_status = check_api_modules()
     excluded_scripts = ['subdomain_takeover.py', 'data_leak.py']
     selected_modules = [tool['number'] for tool in tools if tool['script'] and tool['script'] not in excluded_scripts and tool['number'] != '00']
-    run_modules(selected_modules, api_status, mode_name='BEAST_MODE')
+    run_modules(selected_modules, mode_name='BEAST_MODE')
 
 def execute_script(script_name, target):
     script_path = os.path.join("modules", script_name)
@@ -207,7 +207,8 @@ def execute_script(script_name, target):
     return output  
 
 
-def run_modules(selected_modules, api_status, mode_name=None):
+def run_modules(selected_modules, mode_name=None):
+    #api_status = check_api_modules()
     domain = Prompt.ask("[bold yellow]Enter the target domain or URL[/bold yellow]")
     domain = clean_domain_input(domain)
     report_data = {}
@@ -249,20 +250,20 @@ def main():
                 beast_mode()
             elif choice == '100':  # Run all infrastructure tools
                 selected_modules = [tool['number'] for tool in tools if tool['section'] == 'Network & Infrastructure']
-                run_modules(selected_modules, check_api_modules(), mode_name='All_Infrastructure_Tools')
+                run_modules(selected_modules, mode_name='All_Infrastructure_Tools')
             elif choice == '200':  # Run all web intelligence tools
                 selected_modules = [tool['number'] for tool in tools if tool['section'] == 'Web Application Analysis']
-                run_modules(selected_modules, check_api_modules(), mode_name='All_Web_Intelligence_Tools')
+                run_modules(selected_modules, mode_name='All_Web_Intelligence_Tools')
             elif choice == '300':  # Run all security tools
                 selected_modules = [tool['number'] for tool in tools if tool['section'] == 'Security & Threat Intelligence']
-                run_modules(selected_modules, check_api_modules(), mode_name='All_Security_Tools')
+                run_modules(selected_modules, mode_name='All_Security_Tools')
             elif choice.lower() in ['exit', 'quit']:
                 console.print("[bold green]Exiting Argus. Goodbye![/bold green]")
                 sys.exit(0)
             else:
                 selected_modules = [mod.strip() for mod in choice.replace(',', ' ').split()]
                 if all(mod in tools_mapping for mod in selected_modules):
-                    run_modules(selected_modules, check_api_modules())
+                    run_modules(selected_modules)
                 else:
                     console.print("[bold red]Invalid Input! Please choose valid options.[/bold red]")
                     display_table()
